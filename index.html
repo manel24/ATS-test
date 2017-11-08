@@ -9,11 +9,29 @@
 <div ng-controller="GetProductsCtrl">
    table goes here
 </div>
+
+<!--project dependencies : Jquery, AngularJS, Bootstrap -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--AngularJS modules-->
 <script src="js/app.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/services.js"></script>
+
+<!--Firebase dependencies-->
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD_OGRxdXXQBKAIRbXLyeHGQAF92ZraGfQ",
+        authDomain: "ats-test-2ebe9.firebaseapp.com",
+        databaseURL: "https://ats-test-2ebe9.firebaseio.com",
+        projectId: "ats-test-2ebe9",
+        storageBucket: "ats-test-2ebe9.appspot.com",
+        messagingSenderId: "938773572443"
+    };
+    firebase.initializeApp(config);
+</script>
 </body>
 </html>
