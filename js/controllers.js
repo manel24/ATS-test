@@ -7,8 +7,8 @@
     angular.module('ATS-products.controllers', ['ATS-products.services'])
 
         .controller('getProductsCtrl', getProductsCtrl);
-    getProductsCtrl.$inject = ['$http','$scope', '$firebaseArray', 'productsService'];
-    function getProductsCtrl($http,$scope, $firebaseArray, productsService) {
+    getProductsCtrl.$inject = ['$scope', '$firebaseArray', 'productsService'];
+    function getProductsCtrl($scope, $firebaseArray, productsService) {
 
         var vm = this;
         vm.loading = true;
@@ -25,7 +25,6 @@
         };
         var ref = firebase.database().ref().child('products');
         // download the data into a local object
-        $http.get()
         $firebaseArray(ref).$loaded().then(function (data) {
             vm.products = data;
             vm.pages = data.length / 20;
