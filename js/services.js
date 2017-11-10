@@ -1,15 +1,12 @@
-angular.module('ATS-products.services', [])
+(function () {
+    'use strict';
 
-    .factory('productsService',
-        function () {
-            console.log("getting DB reference");
-            var root = firebase.database().ref();
-            var service = {
-                root: root,
-                products: root.child('products')
-            };
-            return service;
-        }
+    angular.module('ATS-products.services', [])
+        .service('productsService', productsService);
+    productsService.$inject = ['$firebaseArray'];
 
- );
+    function productsService($firebaseArray) {
+
+    }
+})();
 
