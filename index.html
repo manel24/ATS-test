@@ -20,16 +20,14 @@
         <label ng-hide="pdtCtrl.loading">Filter products by: </label>
         <select ng-hide="pdtCtrl.loading" ng-model="selectedKey" ng-options="cat for cat in pdtCtrl.categories"
                 ng-cloak>
-            <option value=" ">All</option>
-
         </select>
         <br>
-        <button ng-hide="pdtCtrl.loading" ng-click="pdtCtrl.randomize()">Randomize order</button>
-        <table class="table table-striped table-hover" ng-hide="pdtCtrl.loading">
+        <button class="button" ng-hide="pdtCtrl.loading" ng-click="pdtCtrl.randomize()">Randomize order</button>
+        <table class="table table-striped table-hover" ng-hide="pdtCtrl.loading" ng-repeat="(key, products) in pdtCtrl.products">
             <tr>
-                <th ng-repeat="(key, val) in pdtCtrl.products[0]">{{key}}</th>
+                <th ng-repeat="(key, val) in products[0]">{{key}}</th>
             </tr>
-            <tr ng-repeat="item in pdtCtrl.products | filter:selectedKey |orderBy: sortKey">
+            <tr ng-repeat="item in products | filter:selectedKey |orderBy: pdtCtrl.sortKey">
                 <td ng-repeat="(key, val) in item ">
                     <div ng-switch on="key">
                         <div ng-switch-when="imageUrl"><img style="width: 60%; height: 60%" ng-src="{{val}}"/></div>
@@ -53,7 +51,7 @@
         <span ng-show="pdtCtrl.loading"
               style="vertical-align: middle; text-align: center; margin: 0;width:40%;height:40% ">
    <!-- Loading products...<i class="glyphicon glyphicon-refresh spinning" style="color:black"></i>-->
-            <img src="loading.gif" style="width:40%;height:40%;margin-left: auto;margin-right: auto; ">
+            <img src="loading.gif" style="width:40%;height:40%;margin:0  auto; ">
     </span>
     </div>
 
